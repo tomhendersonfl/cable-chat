@@ -16,16 +16,25 @@
 #                          PATCH  /users(.:format)               devise/registrations#update
 #                          PUT    /users(.:format)               devise/registrations#update
 #                          DELETE /users(.:format)               devise/registrations#destroy
+#                     root GET    /                              chat_rooms#index
 #               chat_rooms GET    /chat_rooms(.:format)          chat_rooms#index
 #                          POST   /chat_rooms(.:format)          chat_rooms#create
 #            new_chat_room GET    /chat_rooms/new(.:format)      chat_rooms#new
 #                chat_room GET    /chat_rooms/:id(.:format)      chat_rooms#show
-#                     root GET    /                              chat_rooms#index
+#                chat_home GET    /chat_home(.:format)           chat_rooms#home
+#                  welcome GET    /welcome(.:format)             welcome#index
+#            welcome_intro GET    /welcome/intro(.:format)       welcome#intro
+#                                 /cable                         #<ActionCable::Server::Base:0x007fd05b6eb918 @mutex=#<Monitor:0x007fd05b6eb8f0 @mon_owner=nil, @mon_count=0, @mon_mutex=#<Thread::Mutex:0x007fd05b6eb878>>, @pubsub=nil, @worker_pool=nil, @event_loop=nil, @remote_connections=nil>
 #
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :chat_rooms, only: [:new, :create, :show, :index]
   root 'chat_rooms#index'
+  resources :chat_rooms, only: [:new, :create, :show, :index]
+  get 'chat_central', to: 'chat_rooms#home'
+
+  get 'welcome', to: 'welcome#index'
+  get 'welcome/intro', to: 'welcome#intro'
+
   mount ActionCable.server => '/cable'
 end

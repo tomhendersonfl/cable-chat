@@ -11,8 +11,28 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//
+//= require vendors/bower_components/bootstrap/dist/js/bootstrap.min
+//= require vendors/bower_components/flot/jquery.flot
+//= require vendors/bower_components/flot/jquery.flot.resize
+//= require vendors/bower_components/flot.curvedlines/curvedLines
+//= require vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min
+//= require vendors/sparklines/jquery.sparkline.min
+//= require vendors/bower_components/moment/min/moment.min
+//= require vendors/bower_components/fullcalendar/dist/fullcalendar.min
+//= require vendors/bower_components/simpleWeather/jquery.simpleWeather.min
+//= require vendors/bower_components/Waves/dist/waves.min
+//= require vendors/bootstrap-growl/bootstrap-growl.min
+//= require vendors/bower_components/sweetalert/dist/sweetalert.min
+//= require vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min
+//= require vendors/bower_components/jquery-placeholder/jquery.placeholder.min
+//
 //= require bootstrap-sprockets
 //= require cable
+//= require js/app.min
+//
+//= require_tree .
+

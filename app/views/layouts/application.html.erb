@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CableChat</title>
+    <title>Demo</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'core/header' %>
+    <section id="main">
+      <%= render partial: 'core/navigator' %>
+      <%= yield %>
+    </section>
+    <%= render partial: 'core/footer' %>
+
   </body>
 </html>
