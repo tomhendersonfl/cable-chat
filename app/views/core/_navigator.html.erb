@@ -38,8 +38,10 @@
 
     <ul class="main-menu">
         <li class="active"><%= link_to "<i class='zmdi zmdi-home'></i> Dashboard".html_safe, root_path %></li>
-        <li><%= link_to "<i class='zmdi zmdi-home'></i> Chat Central".html_safe, chat_central_path %></li>
+        <li><%= link_to "<i class='zmdi zmdi-comments'></i> Chat Central".html_safe, chat_central_path %></li>
         <li><%= link_to "<i class='zmdi zmdi-home'></i> Cable Chat".html_safe, chat_rooms_path %></li>
+
+        <% if false %>
         <li class="sub-menu">
             <a href="" data-ma-action="submenu-toggle">
                 <i class="zmdi zmdi-view-compact"></i>
@@ -259,4 +261,5 @@
                 Buy this template</a>
         </li>
     </ul>
+        <% end %>
 </aside>
