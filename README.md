@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo is a work in progress.  The basic chat room functionality works.  A user can create and subscribe to multiple chat rooms.  An email address is required to register a user, but it is not validated so any fake address will do.  Chat rooms and messages are persisted to a local SQLite 3 database.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Another objective of this project was to integrate a Bootstrap/Material Design theme into the Rails asset pipeline.  This part of the project is ongoing, so the styling is currently not very attractive.
