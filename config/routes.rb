@@ -21,20 +21,25 @@
 #                          POST   /chat_rooms(.:format)          chat_rooms#create
 #            new_chat_room GET    /chat_rooms/new(.:format)      chat_rooms#new
 #                chat_room GET    /chat_rooms/:id(.:format)      chat_rooms#show
-#                chat_home GET    /chat_home(.:format)           chat_rooms#home
-#                  welcome GET    /welcome(.:format)             welcome#index
-#            welcome_intro GET    /welcome/intro(.:format)       welcome#intro
-#                                 /cable                         #<ActionCable::Server::Base:0x007fd05b6eb918 @mutex=#<Monitor:0x007fd05b6eb8f0 @mon_owner=nil, @mon_count=0, @mon_mutex=#<Thread::Mutex:0x007fd05b6eb878>>, @pubsub=nil, @worker_pool=nil, @event_loop=nil, @remote_connections=nil>
+#             chat_central GET    /chat_central(.:format)        chat_rooms#home
+#                    users GET    /users(.:format)               users#index
+#                edit_user GET    /users/:id/edit(.:format)      users#edit
+#                     user GET    /users/:id(.:format)           users#show
+#                          PATCH  /users/:id(.:format)           users#update
+#                          PUT    /users/:id(.:format)           users#update
+#                          DELETE /users/:id(.:format)           users#destroy
+#                                 /cable                         #<ActionCable::Server::Base:0x007f94b9a03520 @mutex=#<Monitor:0x007f94b9a0bf40 @mon_owner=nil, @mon_count=0, @mon_mutex=#<Thread::Mutex:0x007f94b9a0be78>>, @pubsub=nil, @worker_pool=nil, @event_loop=nil, @remote_connections=nil>
 #
 
 Rails.application.routes.draw do
   devise_for :users
-  root 'welcome#index'
+  # root 'welcome#index'
+  root 'chat_rooms#index'
   resources :chat_rooms, only: [:new, :create, :show, :index]
   get 'chat_central', to: 'chat_rooms#home'
-
-  get 'welcome', to: 'welcome#index'
-  get 'welcome/intro', to: 'welcome#intro'
+  resources :users, except: [:new, :create]
+  # get 'welcome', to: 'welcome#index'
+  # get 'welcome/intro', to: 'welcome#intro'
 
   mount ActionCable.server => '/cable'
 end

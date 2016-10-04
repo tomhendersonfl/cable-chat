@@ -35,4 +35,3 @@
 //= require js/app.min
 //
 //= require_tree .
-
